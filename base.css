@@ -1,0 +1,157 @@
+:root {
+    /* Apple visionOS-inspired color palette */
+    --primary-color: #1D1D1F; /* Apple's deep charcoal */
+    --primary-color-rgb: 29, 29, 31;
+    --secondary-color: #007AFF; /* Apple's system blue */
+    --secondary-color-rgb: 0, 122, 255;
+    --accent-color: #FF3B30; /* Apple's system red */
+    
+    --text-color: #1D1D1F;
+    --text-light-color: #86868B; /* Apple's secondary text */
+    
+    --bg-color: #F2F2F7; /* Apple's system background */
+    --section-bg-color: rgba(255, 255, 255, 0.7); /* Glassmorphic section bg */
+    --card-bg: rgba(255, 255, 255, 0.8); /* Translucent cards */
+    --border-color: rgba(0, 0, 0, 0.08);
+
+    --glass-bg: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --floating-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --floating-shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.12);
+
+    --header-text-color: var(--primary-color);
+    --header-bg-initial: transparent;
+    --header-bg-scrolled: rgba(242, 242, 247, 0.85); 
+    --header-shadow-scrolled: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --header-border-scrolled: 1px solid var(--border-color);
+
+    --hero-bg-color: var(--section-bg-color); 
+    --hero-text-headline: var(--primary-color);
+    --hero-text-paragraph: var(--text-light-color);
+    --hero-card-bg: var(--card-bg);
+    --hero-card-border: var(--border-color);
+    --hero-card-shadow: 0 6px 12px rgba(29, 29, 31, 0.04); 
+    --hero-card-shadow-hover: 0 10px 20px rgba(29, 29, 31, 0.06);
+    --hero-card-icon-bg: rgba(var(--secondary-color-rgb), 0.1);
+    --hero-card-icon-color: var(--secondary-color);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    font-weight: 400; 
+}
+
+main {
+    transition: margin-top 0.4s ease; 
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--secondary-color);
+    padding: 0.875rem 1.75rem;
+    border-radius: 50px; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--floating-shadow);
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+}
+
+.btn:hover, .btn:focus {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--floating-shadow-hover);
+    background: rgba(0, 122, 255, 0.1);
+    outline: none;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em; 
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--text-light-color);
+    max-width: 700px;
+    margin: 0 auto 1rem auto;
+    line-height: 1.7;
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(25px); 
+    transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.floating-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: var(--floating-shadow);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.floating-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--floating-shadow-hover);
+}
+
+@media (max-width: 768px) {
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    .section-header p {
+        font-size: 1rem;
+    }
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    .btn {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}

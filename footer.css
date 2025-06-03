@@ -1,0 +1,24 @@
+/* footer.css */
+
+footer {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--text-light-color);
+    text-align: center;
+    padding: 3rem 1rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 2rem;
+}
+
+footer p {
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 1.5rem 1rem;
+    }
+}

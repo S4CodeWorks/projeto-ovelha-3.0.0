@@ -1,0 +1,139 @@
+/* breeds.css */
+
+.breeds-section {
+    padding: 6rem 0;
+    background: var(--bg-color);
+}
+
+/* .section-header styling is in base.css */
+
+.breeds-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.breed-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 32px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--text-color);
+    box-shadow: var(--floating-shadow);
+    border: 1px solid var(--glass-border);
+    transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.breed-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: var(--floating-shadow-hover);
+}
+
+.breed-card-image-wrapper {
+    width: 100%;
+    height: 240px;
+    overflow: hidden;
+    border-radius: 32px 32px 0 0;
+}
+
+.breed-card-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.35s ease-out;
+}
+
+.breed-card:hover .breed-card-image-wrapper img {
+    transform: scale(1.05);
+}
+
+.breed-card-content {
+    padding: 2rem;
+    text-align: left;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.breed-card-content h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.breed-card-link {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(0, 122, 255, 0.08);
+    border-radius: 20px;
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.breed-card-link i {
+    margin-left: 0.4rem;
+    transition: transform 0.25s ease-out;
+    font-size: 0.8em;
+}
+
+.breed-card:hover .breed-card-link {
+    background: rgba(0, 122, 255, 0.15);
+    transform: translateX(4px);
+}
+
+.breed-card:hover .breed-card-link i {
+    transform: translateX(3px);
+}
+
+@media (max-width: 992px) {
+    .breeds-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+    }
+    .breed-card-image-wrapper {
+        height: 200px;
+    }
+    .breed-card-content h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .breeds-section {
+        padding: 3.5rem 0;
+    }
+    .breeds-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    .breed-card-image-wrapper {
+        height: 240px;
+    }
+    .breed-card-content {
+        padding: 1.25rem;
+        text-align: center;
+    }
+    .breed-card-link {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .breeds-grid {
+        grid-template-columns: 1fr;
+    }
+    .breed-card-image-wrapper {
+        height: 200px;
+    }
+}
